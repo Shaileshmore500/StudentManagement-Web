@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+D:\Documents\learn programming\you_tube\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2214720604.index

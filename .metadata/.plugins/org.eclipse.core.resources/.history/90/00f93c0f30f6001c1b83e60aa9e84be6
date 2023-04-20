@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="you_tube_project">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <property name="context-root" value="you_tube_project"/>
+        <property name="java-output-path" value="/you_tube_project/build/classes"/>
+    </wb-module>
+</project-modules>

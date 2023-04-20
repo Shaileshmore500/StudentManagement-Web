@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+D:\Documents\learn programming\you_tube\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\873464101.index
+\you_tube_project\src\main\java
