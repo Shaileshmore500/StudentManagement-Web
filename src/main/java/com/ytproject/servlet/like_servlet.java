@@ -41,7 +41,7 @@ public class like_servlet extends HttpServlet {
 		{
 			PrintWriter out =response.getWriter();
 			
-			String count="";
+			//var count="";
 		like l=new like();
 		
 		int p=Integer.parseInt(request.getParameter("pid"));
@@ -70,6 +70,8 @@ public class like_servlet extends HttpServlet {
 			
 		}
 		out.print(l.like_count(p));
+		int []a= {1,2,3,4,5,6,7,8,9};
+		out.println(a);
 		/*if((o).equals("like_count"))
 		{
 			

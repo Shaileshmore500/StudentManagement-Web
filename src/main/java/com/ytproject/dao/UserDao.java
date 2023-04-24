@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.coyote.http11.Http11AprProtocol;
 import org.apache.jasper.tagplugins.jstl.core.Out;
 
+import com.mysql.cj.Session;
+import com.ytproject.entities.Message;
 import com.ytproject.entities.User;
 import com.ytproject.entities.post;
 
@@ -132,15 +134,18 @@ public class UserDao {
 			pstmt.setString(6, p.getpPic());
 			pstmt.setInt(7, p.getUserId());
 
-			pstmt.executeUpdate();
-
+			
+			int a= pstmt.executeUpdate();
+System.out.println("this is a"+a);
 			f = true;
 			System.out.println("post saving in user Dio");
-
+			
 		} catch (Exception e) {
-			// TODO: handle exception
-
+			f=false;
 			e.printStackTrace();
+			
+			
+			
 		}
 		return f;
 

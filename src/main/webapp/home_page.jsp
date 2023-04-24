@@ -121,6 +121,8 @@ body {
 
 
 
+
+
 	<!-- banner -->
 	<div style="margin-top: 1%; margin-bottom: -100pxs">
 		<div class="jumbotron primary-background text-white">
@@ -136,8 +138,7 @@ body {
 					operations to perform) while other languages use the declarative
 					form (i.e. the desired result is specified, not how to achieve it).</p>
 
-				<a href="index.jsp"><button
-						class="btn btn-outline-light btn-lg">
+				<a href="index.jsp"><button class="btn btn-outline-light btn-lg">
 						<span class="fa fa-user-circle-o fa-spin"></span> LOGIN
 					</button>&nbsp&nbsp&nbsp&nbsp</a> <a href="register_page.jsp"><button
 						class="btn btn-outline-light btn-lg">
@@ -158,11 +159,10 @@ body {
 						<p class="card-text">Some quick example text to build on the
 							card title and make up the bulk of the card's content.</p>
 						<div class="card-footer footer_card">
-							<span >
-								<a href="#" class="btn btn-primary">Apply</a> <a href="#"
-									class="btn btn-primary"> <i class="fa fa-file">&nbsp</i>
+							<span> <a href="#" class="btn btn-primary">Apply</a> <a
+								href="#" class="btn btn-primary"> <i class="fa fa-file">&nbsp</i>
 									Read More
-								</a>
+							</a>
 							</span>
 
 						</div>
@@ -206,7 +206,16 @@ body {
 			</div>
 		</div>
 	</div>
-	 <%@include file="post.jsp"%> 
+	<div>
+		<div class="post_pnl_header">
+			<span class="card-title">Post</span> <span
+				class="glyphicon glyphicon-plus"></span>
+
+		</div>
+		<div>
+			<%@include file="post.jsp"%>
+		</div>
+	</div>
 	<hr class="hr">
 
 

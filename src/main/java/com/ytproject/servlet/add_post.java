@@ -81,7 +81,11 @@ public class add_post extends HttpServlet {
 		} else
 
 		{
-			response.sendRedirect("login.jsp");
+			Message m = new Message("Something Went Wrong!Please Try Again....", "error", "alert-danger bg-#246d66 pl-1 mt-1");
+
+			HttpSession ss = request.getSession();
+			ss.setAttribute("msg", m);
+			response.sendRedirect("addpost.jsp");
 		}
 
 	}

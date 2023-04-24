@@ -40,7 +40,7 @@ public class logout_servlet extends HttpServlet {
 		s.removeAttribute("curentUser");
 		Message m = new Message("Logout Successfully" , "success" , "alert-success pl-5 mt-1");
 		s.setAttribute("msg", m);
-		response.sendRedirect("login_page.jsp");
+		response.sendRedirect("index.jsp");
 				
 		
 		
