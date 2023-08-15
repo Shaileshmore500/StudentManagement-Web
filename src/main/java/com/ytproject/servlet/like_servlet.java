@@ -41,7 +41,7 @@ public class like_servlet extends HttpServlet {
 		{
 			PrintWriter out =response.getWriter();
 			
-			String count="";
+			//var count="";
 		like l=new like();
 		
 		int p=Integer.parseInt(request.getParameter("pid"));
@@ -55,21 +55,26 @@ public class like_servlet extends HttpServlet {
 			
 			boolean i= l.dolike( u, p);
 			System.out.println("in like");
-			
+			out.print(l.like_count(p));
 			
 		}
 		
-		if((o).equals("dislike"))
+		else if((o).equals("dislike"))
 		{
 			int u=Integer.parseInt(request.getParameter("uid"));
 			System.out.println(u);
 			
 			boolean i= l.dislike(u, p);
 			System.out.println("in dislike");
-			
+			out.print(l.like_count(p));
 			
 		}
-		out.print(l.like_count(p));
+		else if((o).equals("chat"))
+		{
+			System.out.println("in like countvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv");
+			request.setAttribute("receiverID", p);
+		}
+		
 		/*if((o).equals("like_count"))
 		{
 			

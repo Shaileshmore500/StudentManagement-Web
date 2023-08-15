@@ -1,3 +1,4 @@
+<%@page import="com.ytproject.entities.Message"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -110,6 +111,26 @@ body {
 	float: right;
 	margin: 0px 2px 0px 2px;
 }
+.msg-body {
+	position: fixed;
+	height: 45px;
+	bottom: 59px;
+	left: 21px;
+	padding: 10px;
+	width: 100%;
+}
+.msg{
+	    padding: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: 30%;
+    max-width: 40%;
+    font-size: inherit;
+    border-radius: 9px;
+}
+.coursebtn{
+float: right;
+}
 </style>
 
 
@@ -118,6 +139,8 @@ body {
 <body>
 	<!-- nave bar -->
 	<%@include file="normal_navbar.jsp"%>
+
+
 
 
 
@@ -136,8 +159,7 @@ body {
 					operations to perform) while other languages use the declarative
 					form (i.e. the desired result is specified, not how to achieve it).</p>
 
-				<a href="index.jsp"><button
-						class="btn btn-outline-light btn-lg">
+				<a href="index.jsp"><button class="btn btn-outline-light btn-lg">
 						<span class="fa fa-user-circle-o fa-spin"></span> LOGIN
 					</button>&nbsp&nbsp&nbsp&nbsp</a> <a href="register_page.jsp"><button
 						class="btn btn-outline-light btn-lg">
@@ -158,11 +180,10 @@ body {
 						<p class="card-text">Some quick example text to build on the
 							card title and make up the bulk of the card's content.</p>
 						<div class="card-footer footer_card">
-							<span >
-								<a href="#" class="btn btn-primary">Apply</a> <a href="#"
-									class="btn btn-primary"> <i class="fa fa-file">&nbsp</i>
+							<span class="coursebtn"> <a href="#" class="btn btn-primary">Apply</a> <a
+								href="#" class="btn btn-primary"> <i class="fa fa-file">&nbsp</i>
 									Read More
-								</a>
+							</a>
 							</span>
 
 						</div>
@@ -206,7 +227,16 @@ body {
 			</div>
 		</div>
 	</div>
-	 <%@include file="post.jsp"%> 
+	<div>
+		<div class="post_pnl_header">
+			<span class="card-title">Post</span> <span
+				class="glyphicon glyphicon-plus"></span>
+
+		</div>
+		<div>
+			<%@include file="post.jsp"%>
+		</div>
+	</div>
 	<hr class="hr">
 
 
@@ -307,6 +337,16 @@ body {
 			</div>
 		</div>
 	</div>
+
+
+	<div class="msg-body">
+		<div class="alert-danger msg">Something went wrong.Please Try
+			Again..
+			
+			<div id="bar" style="background-color: rgb(24, 23, 22); position: absolute; padding: 2px; width: 97%; bottom: 2px; left: 5px; display: none;"></div>
+			</div>
+	</div>
+
 
 
 

@@ -204,8 +204,8 @@ body {
 			while (set.next()) {
 
 				int pid = set.getInt(1);
-				String pTitle = set.getString(2);
-				String pcontent = set.getString(3);
+				String pTitle = set.getString("pTitle");
+				String pcontent = set.getString("pContent");
 				String pCode = set.getString(4);
 				String pLink = set.getString(5);
 				String pPic = set.getString(6);
@@ -298,8 +298,7 @@ body {
 							<img src="pic/like2_img.png"
 								style="height: 25px; width: 25px;display: <%=unliked%>"
 								class="btn_hour" onclick="like(<%=uid%>,<%=pid%>)"
-								id="likefalsebtn_<%=pid%>">
-								 <img src="pic/like_img.png"
+								id="likefalsebtn_<%=pid%>"> <img src="pic/like_img.png"
 								style="height: 25px; width: 25px;display: <%=liked%>"
 								onclick="dislike(<%=uid%>,<%=pid%>)" class="btn_hour"
 								id="liketruebtn_<%=pid%>">

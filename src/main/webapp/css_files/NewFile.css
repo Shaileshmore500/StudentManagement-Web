@@ -1,22 +1,21 @@
-.logo_img{
+.logo_img {
 	height: auto;
 	width: 5%;
-	
-}
-.primary-background{
-	background: #246d66!important;
-	
-}
-.nav_icon{
-	height: 46%;
-    width: 47%;
 }
 
-.clip_path{
-	
-	
-clip-path: polygon(50% 0%, 76% 0, 100% 0, 100% 100%, 84% 96%, 50% 100%, 16% 96%, 0 100%, 0% 35%, 0 0);
-height: 100vh;
+.primary-background {
+	background: #246d66 !important;
+}
+
+.nav_icon {
+	height: 46%;
+	width: 47%;
+}
+
+.clip_path {
+	clip-path: polygon(50% 0%, 76% 0, 100% 0, 100% 100%, 84% 96%, 50% 100%, 16% 96%, 0
+		100%, 0% 35%, 0 0);
+	height: 100vh;
 }
 /*post page css*/
 .post_footer .btn2 {
@@ -131,4 +130,4 @@ height: 100vh;
 	color: aliceblue;
 }
 /************/
-
+/***show message *****/

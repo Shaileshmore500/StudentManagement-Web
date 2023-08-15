@@ -58,7 +58,8 @@ public class login extends HttpServlet {
 			//create HttpSession for send data in login jsp for show errors
 			HttpSession s = request.getSession();
 			s.setAttribute("msg" , m);
-			response.sendRedirect("login_page.jsp");
+			
+			response.sendRedirect("index.jsp");
 			
 			
 			

@@ -8,7 +8,7 @@
 		<display-name>Login</display-name>
 		<welcome-file-list>
 			<welcome-file>index.jsp</welcome-file>
-			
+
 		</welcome-file-list>
 
 
@@ -75,7 +75,16 @@
 			<servlet-name>likeservlet</servlet-name>
 			<url-pattern>/like_servlet</url-pattern>
 		</servlet-mapping>
+		<servlet>
 
+			<servlet-name>chatroom</servlet-name>
+			<servlet-class>com.ytproject.servlet.ChatRoom</servlet-class>
+
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>chatroom</servlet-name>
+			<url-pattern>/ChatRoom</url-pattern>
+		</servlet-mapping>
 
 
 

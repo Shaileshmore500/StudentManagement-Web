@@ -11,7 +11,7 @@ if (user == null) {
 	Message m = new Message("**Login First...", "error", "alert-danger bg-#eb0d0d pl-1 mt-1");
 	session.setAttribute("msg", m);
 
-	response.sendRedirect("login_page.jsp");
+	response.sendRedirect("index.jsp");
 	//session.removeAttribute("msg");
 } else {
 %>
@@ -144,7 +144,7 @@ if (user == null) {
 	<!-- start profile model -->
 
 
-
+<%@include file="addpost.jsp"%>
 	<!-- Modal -->
 	<div class="modal fade " id="exampleModal2" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -289,7 +289,7 @@ if (user == null) {
 
 
 	<!-- add post model -->
-	<%@include file="addpost.jsp"%>
+	
 	
 	
 
@@ -361,7 +361,7 @@ if (user == null) {
 												var user = $(
 														'#exampleInputName')
 														.val();
-												if (user.length<=2 || user.length> = 25) {
+												if (user.length<=2 || user.length>= 25) {
 													$('#nameHelp')
 															.html(
 																	"<b style='color:red'>**Please enter name between 3-25 letters</b>");

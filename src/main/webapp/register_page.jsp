@@ -9,7 +9,13 @@
 
 <!-- boostwrap scc -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css_files/NewFile.css" rel="stylesheet">
 
 
 <style >
@@ -27,7 +33,6 @@ width: 10px;
 <body  >
 
 <!--navbar  -->
-<%@include file="normal_navbar.jsp" %>
 
 
 	<main  class=" d-flex align-items-center    clip_path " style="margin-top: 5px;background-color: #06443e;">
@@ -62,7 +67,7 @@ width: 10px;
 							
 								 <div class="form-group">
 								    <label for="exampleInputEmail1">User Name</label>
-								    <input type="name" name="name" required class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter User name">
+								    <input type="name" required name="name" required class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter User name">
 								    <small id="nameHelp" class="form-text text-muted" style=""></small>
 								  </div>
 							
@@ -149,38 +154,57 @@ $(document).ready(function(){
 
 <script >
 	$(document).ready(function () {
-		$('#submit').click(function () {
+		$('#submit').click(function checkform() {
+			debugger;
+			var status=true;
 			var user=$('#exampleInputName').val();
-			if (user.length<=2 || user.length>=25) {
-				$('#nameHelp').html("<b style='color:red'>**Please enter name between 3-25 letters</b>");
-				return false;
+			if (user.length<=0) {
+				$('#nameHelp').html("<b style='color:red'>**Field Is Mandatory</b>");
+				status =false;
 			}
-			if (user.length>=2 || user.length<=25) {
+			else if (user.length<=2 || user.length>=25) {
+				$('#nameHelp').html("<b style='color:red'>**Please enter name between 3-25 letters</b>");
+				status = false;
+			}
+			else
+				{
 				$('#nameHelp').html("");				
 			}
 			
 			var contact=$('#number').val();
-			if((((contact.length)))>10||(((contact.length)))==1||(((contact.length)))==2||(((contact.length)))==3||(((contact.length)))==4||(((contact.length)))==5||(((contact.length)))==6||(((contact.length)))==7||(((contact.length)))==8||(((contact.length)))==9)
+			if(contact.length>0 && contact.length!=10)
 			{
 				$('#contactHelp').html('<b style="color:red">**please enter 10 digit valide number</b>');
-				return false;
+				status = false;
 			}
-			if((((contact.length)))==10)
+			else if(contact.length<=0 )
+				{
+				$('#contactHelp').html("<b style='color:red'>**Field Is Mandatory</b>");
+				status = false;
+				}
+			else
 			{
 				$('#contactHelp').html("");
 				
 			}
 			var password=$('#exampleInputPassword1').val();
-			if(password.length<6)
+			
+			 if(password.length<=0)
+			{
+				$('#passwordtHelp').html("<b style='color:red'>**Field Is Mandatory</b>");
+				status = false;
+			}
+			else if(password.length<6)
 			{
 				$('#passwordtHelp').html('<b style="color:red">**Password must contain atleast 6 letters</b>');
-				return false;
+				status = false;
 			}
-			if(password.length>6)
+			else
 			{
 				$('#passwordtHelp').html('');
 				
 			}
+			/*
 			
 			var check=$('#exampleCheck1').val();
 			console.log(check);
@@ -189,22 +213,33 @@ $(document).ready(function(){
 					$('#checkHelp').html('<b style="color:red">**Please check me ...</b>');
 					//$('#submit').removeAttr('disabled');
 					
-					return false;
+					status = false;
 				}
-			if(check=null)
+			else
 			{
 				$('#checkHelp').html('');
 				
 				
 			}
-				
-				
+				*/
+			return status ;	
 			
 		})	
 	});
 
 </script>
 
+<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="java_script/js2.js"></script>
 
 
 </body>

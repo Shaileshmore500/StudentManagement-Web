@@ -1,6 +1,8 @@
 
 
 function validate(id) {
+	
+	
 
 
 	var idname = "#"+id;

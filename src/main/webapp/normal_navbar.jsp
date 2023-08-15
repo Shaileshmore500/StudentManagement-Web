@@ -1,4 +1,5 @@
 
+<%@page import="javax.print.attribute.standard.ReferenceUriSchemesSupported"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -43,44 +44,57 @@
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <span class="fa fa-graduation-cap"></span>
-						cources
+						courses
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span>Web-design</a>
-						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span>java</a>
-						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span>c++</a>
-						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span>php</a>
-						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span>phython</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">C#</a>
+					<%
+					String csql="select name ,coursepid from tbl_course";
+					ResultSet cset=new Dao(ConnectionProvider.getConnection()).getData(csql);
+					while(cset.next())
+					{
+						
+					
+					%>
+					<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"><span class="	fa fa-empire"></span><%=cset.getString(1) %></a>
+						<%} %>
+						
+						
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="#"><span
 						class="fa fa-globe"></span> about us</a></li>
-				
+
 				<li class="nav-item"><a class="nav-link" href="index.jsp"><span
 						class="fa fa-user-circle-o "></span> Login</a></li>
-					
+
 				<li class="nav-item"><a class="nav-link"
 					href="register_page.jsp"><span class="fa fa-user-plus "></span>
 						Signup</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				
 				<li class="nav-item"><a class="nav-link" href="#"
 					data-toggle="modal" data-target="#add_post_model"><span
-						class="	fa fa-file-powerpoint-o"></span> Add-Post</a></li>
+						class="	fas fa-file-alt"></span> Add-Post</a></li>
+				<li id="nav_chatroom" class="nav-item"><a class="nav-link" href="#"
+					data-toggle="modal" data-target="#ChatRoom-model"><span
+						class="far fa-comment"></span> ChatRoom</a>
+						</li>
+
+
 			</ul>
+			<!-- 
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			</form> -->
 			<a class="nav-link" href="profile.jsp"><span style="color: #ffff"
 				class="fa fa-user-circle-o fa-2x"></span></a>
 		</div>
 	</nav>
 
 
-
+	<%@include file="addpost.jsp"%>
+	<%@include file="chatroom.jsp"%>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -93,6 +107,12 @@
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 	<script type="text/javascript" src="java_script/js2.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'
+		crossorigin='anonymous'></script>
+		<script type="text/javascript">
+		
+		
+		</script>
 
 </body>
 </html>

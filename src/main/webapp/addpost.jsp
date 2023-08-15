@@ -1,14 +1,18 @@
 <%@page import="com.ytproject.helper.ConnectionProvider"%>
-<%@page import="com.ytproject.entities.User"%>
+
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 
-<%@page import="java.sql.DriverManager"%>
-<%@page import="com.mysql.cj.jdbc.Driver"%>
-<%@page import="java.sql.Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +29,13 @@
 </head>
 <body>
 
-<h1>hii</h1>
+
 
 	<div class="modal fade" id="add_post_model" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+
 				<div class="modal-header">
 					<h3 class="modal-title" id="exampleModalLabel">Provide post
 						details..</h3>
@@ -43,48 +48,55 @@
 					<form action="add_post" id="add_form" enctype="multipart/form-data"
 						method="post">
 						<div class="form-group">
-							<p role="button" class="tooltip-test fa fa-question-circle"
-								title="Tooltip" style="float: right; margin-bottom: 0px"></p>
-							<select class="form-control" id="catid" name="cat_name">
+							
+							<select class="form-control" required="required" id="catid"
+								name="cat_name">
 								<option selected="selected" disabled="disabled">--select
 									category--</option>
 								<%
-			//Class.forName("com.mysql.cj.jdbc.Driver");
+								try {
 
-			//Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ytprooject", "root", "");
-			ConnectionProvider con2=new ConnectionProvider();
-			
-			String query22 = "select * from category";
+									//Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Statement stmt22 = con2.getConnection().createStatement();
-			ResultSet set2 = stmt22.executeQuery(query22);
+									//Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ytprooject", "root", "");
+									ConnectionProvider con22 = new ConnectionProvider();
 
-			while (set2.next()) {
+									String Query = "select * from category";
 
-				int cId=set2.getInt(1);
-				String cName= set2.getString(2);
-			
-				
-			%>
-			<option value=<%=cId %>><%=cName %></option>
-			<%} %>
+									Statement statement = con22.getConnection().createStatement();
+									ResultSet set2 = statement.executeQuery(Query);
+
+									while (set2.next()) {
+
+										int cId = set2.getInt(1);
+										String cName = set2.getString(2);
+								%>
+								<option value=<%=cId%>><%=cName%></option>
+								<%
+								}
+
+								} catch (Exception e) {
+								}
+								%>
 							</select>
 						</div>
 						<div class="form-group">
 							<h6>Enter Post Title :</h6>
-							<input type="text" name="post_title" class="form-control"
-								placeholder="Enter here .......">
+							<input type="text" required="required" name="post_title"
+								class="form-control" placeholder="Enter here .......">
 						</div>
 						<div class="form-group">
 							<h6>Enter Post content :</h6>
-							<textarea class="form-control" name="post_content"
+							<textarea class="form-control" required="required"
+								name="post_content"
 								placeholder=" Enter Post Content (between 50 to 200 words)...."
 								style="height: 150px"></textarea>
 						</div>
 						<div class="form-group">
 							<h6>Enter code(if any) :</h6>
-							<textarea class="form-control" name="post_code"
-								placeholder=" Enter here...." style="height: 150px"></textarea>
+							<textarea class="form-control" 
+								name="post_code" placeholder=" Enter here...."
+								style="height: 150px"></textarea>
 						</div>
 						<div class="form-group">
 							<h6>Enter Resource link (if any) :</h6>
@@ -95,22 +107,22 @@
 							<h6>Select post pic :</h6>
 							<input type="file" name="post_img" class="form-control">
 						</div>
-
-						<div class="container">
+						<div>
+							
+							<div class="modal-footer">
 							<button type="submit" id="add_post"
-								class="btn btn-outline-primary">Post</button>
+									class="btn btn-outline-primary">Post</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
 
+							</div>
 						</div>
 
 
 
 					</form>
 
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
 
-					</div>
 
 
 				</div>
@@ -155,6 +167,14 @@
 					edit_status = false;
 					$(this).text("Edit-Profile");
 				}
+			});
+			$('#add_form').submit(function() {
+				var a=$('#catid').val();
+				if(a==null)
+					{
+					alert("Please Select Category..");
+					return false;
+					}
 			});
 
 		});
